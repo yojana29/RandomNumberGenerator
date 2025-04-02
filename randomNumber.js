@@ -10,8 +10,8 @@ let X0,//seed
 
  let X =[],R =[];
  X0 =Math.floor(Math.random()*10000);
-//  console.log(X0);
  X.push(X0);
+ //  console.log(X0);
 //  console.log(X[0]);
 //  a = Math.floor(Math.random()*50);
 //  console.log(a);

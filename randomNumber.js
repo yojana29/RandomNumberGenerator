@@ -1,5 +1,5 @@
 
-const prompt =require("prompt-sync")();
+// const prompt =require("prompt-sync")();
 
 
 let X0,//seed
@@ -39,4 +39,32 @@ const randomNumber = () =>{
 
 }
 console.log(randomNumber());
+// console.log(R);
+
+
+//using kolmogorov-Smirnov test for testing uniformity
+
+//sorting the array R
+
+R.sort((a,b)=> a - b);//sorts in string not numbers
+console.log(R);
+let dPositive = [],dNegative = [],D, alpha = 0.05 ; 
+for(i = 0;i<n;i++){
+    dPositive[i] = i/n - R[i];
+    dNegative[i] = R[i] - (i-1)/n;  
+}
+max1 = Math.max(...dPositive);
+max2 = Math.max(...dNegative);
+
+ D = Math.max(max1,max2);
+ let dAlpha = 0.565;
+ function checkUniformity(){
+    if( D <= dAlpha){
+        console.log("The sequence of random numbers are uniformly distributed and not rejected.");
+    }
+    else{
+        console.log("The sequence of random numbers are not unifromly distributed and rejected");
+    }
+ };
+checkUniformity();
 
